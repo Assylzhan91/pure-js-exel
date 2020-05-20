@@ -1,7 +1,3 @@
+import './index.html'
 import './styles/styles.scss'
-
-async function start() {
-    await new Promise.resolve()
-}
-
-start()
+console.log('Hello, World')

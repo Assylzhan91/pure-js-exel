@@ -4,20 +4,26 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
+const isProd = process.env.NODE_ENV === 'production'
+const isDev = !isProd
+
+console.log('isProd', isProd)
+console.log('isDev', isDev)
 
 module.exports = {
     mode: 'development',
     entry: ['@babel/polyfill', './src/index.js'],
     output: {
-        filename: 'bundle.[hash].js',
+        filename: isDev ? 'bundle.js' : 'bundle.[hash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '',
     },
+
+    devtool: isDev ? 'source-map' : false,
     devServer: {
-        // contentBase: path.join(__dirname, 'dist'),
         port: 9991,
-        // compress: true,
-        // filename: 'bundle.js'
+        contentBase: './dist',
+        open: true
     },
     module: {
         rules: [
@@ -68,7 +74,12 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
         template: './src/index.html',
-    }),
+        title : 'Weather Forecaster',
+        minify: {
+            removeComments: isProd,
+            collapseWhitespace: isProd,
+        }
+        }),
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [
@@ -78,7 +89,7 @@ module.exports = {
             ],
         }),
         new MiniCssExtractPlugin({
-            filename: 'bundle.[hash].css'
+            filename: isDev ? 'bundle.css' : 'bundle.[hash].css'
         })
     ],
 

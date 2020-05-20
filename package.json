@@ -5,8 +5,8 @@
   "description": "Pure JS App",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack-dev-server webpack --mode development --open",
-    "build": "webpack --mode production"
+    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.1",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
@@ -41,7 +42,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.8.7"
   },
-  "browser":{
+  "browser": {
     "child_process": false
   },
   "browserslist": "> 0.25%, not dead"
