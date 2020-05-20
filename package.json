@@ -5,7 +5,7 @@
   "description": "Pure JS App",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack-dev-server webpack --open",
+    "start": "webpack-dev-server webpack --mode development --open",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -22,9 +22,13 @@
   },
   "homepage": "https://github.com/Assylzhan91/pure-js-exel#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.1",
     "css-loader": "^3.5.3",
+    "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
@@ -34,5 +38,11 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7"
+  },
+  "browser":{
+    "child_process": false
+  },
+  "browserslist": "> 0.25%, not dead"
 }

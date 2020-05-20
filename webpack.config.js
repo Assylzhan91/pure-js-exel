@@ -7,14 +7,14 @@ const path = require('path')
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: ['@babel/polyfill', './src/index.js'],
     output: {
         filename: 'bundle.[hash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '',
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        // contentBase: path.join(__dirname, 'dist'),
         port: 9991,
         // compress: true,
         // filename: 'bundle.js'
@@ -22,8 +22,39 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.scss$/i,
-                use: [MiniCssExtractPlugin.loader, 'scss-loader'],
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                }
+            },
+
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                            sassOptions: {
+                                outputStyle: 'compressed',
+                            }
+                        }
+                    }
+                ],
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: "html-loader",
+                        options: {
+                            minimize: true,
+                        },
+                    }
+                ]
             }
         ],
     },
@@ -49,5 +80,6 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'bundle.[hash].css'
         })
-    ]
+    ],
+
 };

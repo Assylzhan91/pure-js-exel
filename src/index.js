@@ -1,13 +1,7 @@
-import foo from "./module"
 import './styles/styles.scss'
 
-class NewClass {
-    foo(){
-        console.log('create Class')
-    }
+async function start() {
+    await new Promise.resolve()
 }
-const firstClass = new NewClass()
-firstClass.foo()
 
-console.log(foo())
-console.log(2)
+start()
