@@ -1,0 +1,14 @@
+@import "mixins";
+@import "variables";
+
+
+.table {
+  color: aqua;
+}
+
+@mixin table {
+
+  &__table {
+    background-color: blue;
+  }
+}

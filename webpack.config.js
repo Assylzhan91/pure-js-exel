@@ -75,6 +75,11 @@ module.exports = {
                     },
                 ],
             }, //HTML
+            {
+                test: /\.(png|jpg)$/,
+                include: path.join(__dirname, '/assets/images'),
+                loader: 'file-loader'
+            },
         ],
     },
     resolve: {

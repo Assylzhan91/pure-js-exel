@@ -1,0 +1,14 @@
+@import "mixins";
+@import "variables";
+
+.toolbar {
+  font-size: 12px;
+  color: darkred;
+}
+
+@mixin toolbar {
+
+  &__toolbar {
+    background-color: green;
+  }
+}
