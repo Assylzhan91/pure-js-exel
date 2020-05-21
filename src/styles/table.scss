@@ -3,12 +3,67 @@
 
 
 .table {
-  color: aqua;
+
 }
 
 @mixin table {
 
   &__table {
-    background-color: blue;
+    @include position-flex(false);
+    top: $header_height + $header_toolbar + $formula_toolbar;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
+}
+
+.row{
+  display: flex;
+  height: $row-height;
+  min-height: 20px;
+
+  &-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: $info-cell-width;
+    height: 100%;
+    border: 1px solid $border_color;
+    background-color: #f8f9fa;
+    border-top: none;
+  }
+
+  &-data{
+    display: flex;
+    .cell{
+      min-width: 40px;
+      padding: 5px;
+      width: $column-width;
+      height: 100%;
+      border: 1px solid #e2e3e3;
+      border-left: none;
+      border-top: none;
+      color: black;
+      white-space: nowrap;
+      outline: none;
+
+      &.selected{
+        border: none;
+        box-shadow: 0 0 0 2px #3c64ff;
+        z-index: 10;
+      }
+    }
+  }
+
+    .column{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f9fa;
+      min-width: 40px;
+      width: $column-width;
+      border: 1px solid $border_color;
+      height: 100%;
+      border-left: none;
+      border-top: none;
+    }
 }

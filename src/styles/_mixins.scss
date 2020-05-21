@@ -22,10 +22,15 @@
 
 }
 
-%position-flex{
-  display: flex;
-  position: absolute;
-  right: 0;
-  left: 0;
+@mixin position-flex($flex: true){
+  @if $flex {
+    display: flex;
+  }
+  @extend %position-flex
 }
 
+%position-flex{
+  position: absolute;
+  right:0;
+  left: 0;
+}
