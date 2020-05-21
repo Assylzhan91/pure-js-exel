@@ -1,4 +1,5 @@
 @import '~normalize.css';
+
 @import 'reset';
 @import 'mixins';
 
@@ -12,6 +13,7 @@
 
 body {
   font-size: 14px;
+  font-family: 'Material Icons', sans-serif;
 }
 
 .container{
@@ -24,4 +26,3 @@ body {
   @include formula;
   @include table;
 }
-

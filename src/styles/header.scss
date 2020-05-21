@@ -3,15 +3,53 @@
 
 
 .header {
-  font-size: 12px;
-  color: yellow;
 }
 
 @mixin header {
 
   &__header {
-    background-color: red;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: $header_height;
+    padding: 8px  4px 0;
+    display: flex;
+    justify-content: space-between;
   }
 }
+
+.input{
+
+  &__header{
+    padding: 2px 7px;
+    color: #000;
+    min-width: 1px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    height: 20px;
+    font-size: 18px;
+    line-height: 22px;
+    outline: none;
+
+    &:hover{
+      border: 1px solid $border_color;
+    }
+
+    &:focus{
+      border-style: solid;
+      border-color: #506fff;
+    }
+
+  }
+}
+.button{
+  @include button(red);
+  &__header{
+
+  }
+}
+
+
 
 
