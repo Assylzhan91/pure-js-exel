@@ -1,0 +1,15 @@
+@import "mixins";
+
+.button{
+  @include button(red);
+
+  &__header{
+
+  }
+
+  &__toolbar{
+    &:active{
+      color: green;
+    }
+  }
+}

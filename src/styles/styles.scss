@@ -7,22 +7,22 @@
 @import 'toolbar';
 @import 'formula';
 @import 'table';
+@import 'button';
 
 
 
 
 body {
   font-size: 14px;
-  font-family: 'Material Icons', sans-serif;
 }
 
-.container{
-
-}
 
 .excel{
+  position: relative;
   @include header;
   @include toolbar;
   @include formula;
   @include table;
 }
+
+

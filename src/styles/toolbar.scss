@@ -1,14 +1,15 @@
 @import "mixins";
 @import "variables";
 
-.toolbar {
-  font-size: 12px;
-  color: darkred;
-}
 
 @mixin toolbar {
 
   &__toolbar {
-    background-color: green;
+    @extend %position-flex;
+    height: $header_toolbar;
+    top: $header_height;
+    border-top: 1px solid $border_color;
+    border-bottom: 1px solid $border_color;
+    align-items: center;
   }
 }
