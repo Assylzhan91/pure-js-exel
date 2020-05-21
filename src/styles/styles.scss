@@ -8,6 +8,7 @@
 @import 'formula';
 @import 'table';
 @import 'button';
+@import 'dashboard';
 
 
 
@@ -23,6 +24,7 @@ body {
   height: 100%;
   max-width: 100%;
   font-size: .8rem;
+
   @include header;
   @include toolbar;
   @include formula;
