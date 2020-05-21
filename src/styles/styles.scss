@@ -1,11 +1,34 @@
+@import '~normalize.css';
+
+@import 'reset';
+@import 'mixins';
+
+@import 'header';
+@import 'toolbar';
+@import 'formula';
+@import 'table';
+@import 'button';
+@import 'dashboard';
+
+
+
+
 body {
-  background-color: aqua;
-
-  .some{
-    color: blue;
-
-    &:hover{
-      background-color: green;
-    }
-  }
+  font-size: 14px;
 }
+
+
+.excel{
+  position: relative;
+  color: #888;
+  height: 100%;
+  max-width: 100%;
+  font-size: .8rem;
+
+  @include header;
+  @include toolbar;
+  @include formula;
+  @include table;
+}
+
+

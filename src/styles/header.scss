@@ -1,0 +1,47 @@
+@import "mixins";
+@import "variables";
+
+
+.header {
+
+}
+
+@mixin header {
+
+  &__header {
+    @include position-flex();
+    top: 0;
+    height: $header_height;
+    padding: 8px  4px 0;
+    justify-content: space-between;
+  }
+}
+
+.input{
+
+  &__header{
+    padding: 2px 7px;
+    color: #000;
+    min-width: 1px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    height: 20px;
+    font-size: 18px;
+    line-height: 18px;
+    outline: none;
+
+    &:hover{
+      border: 1px solid $border_color;
+    }
+
+    &:focus{
+      border-style: solid;
+      border-color: #506fff;
+    }
+
+  }
+}
+
+
+
+

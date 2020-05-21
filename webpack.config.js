@@ -16,6 +16,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '',
     },
+    optimization: {
+        minimize: false,
+    },
 
     devtool: isDev ? 'source-map' : false,
     devServer: {
@@ -75,6 +78,11 @@ module.exports = {
                     },
                 ],
             }, //HTML
+            {
+                test: /\.(png|jpg)$/,
+                include: path.join(__dirname, '/assets/images'),
+                loader: 'file-loader',
+            },
         ],
     },
     resolve: {
