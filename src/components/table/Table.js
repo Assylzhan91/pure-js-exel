@@ -21,10 +21,6 @@ export class Table extends ExcelComponent {
                 <div class="column">C</div>
                 <div class="column">A</div>
                 <div class="column">B</div>
-                <div class="column">C</div>
-                <div class="column">A</div>
-                <div class="column">B</div>
-                <div class="column">C</div>
             </div>
           </div>
           <div class="row">
