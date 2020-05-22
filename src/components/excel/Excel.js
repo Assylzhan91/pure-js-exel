@@ -17,6 +17,7 @@ export class Excel {
         return $root
     }
     render() {
+        console.log(this.getRoot())
         this.$el.append(this.getRoot())
     }
 }
