@@ -8,8 +8,7 @@ import './index.html'
 import './styles/styles.scss'
 
 const excel = new Excel('#app', {
-    components: [Header, Formula, Toolbar, Table],
-
+    components: [Header, Toolbar, Formula, Table],
 })
 
 excel.render()
