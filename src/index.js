@@ -11,4 +11,5 @@ const excel = new Excel('#app', {
     components: [Header, Formula, Toolbar, Table],
 
 })
-excel
+
+excel.render()
