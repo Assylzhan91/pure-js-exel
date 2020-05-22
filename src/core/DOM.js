@@ -8,11 +8,9 @@ export function $() {
 $.create = (tagName, classNames = '')=>{
     const el = document.createElement(tagName)
     if (classNames) {
-        if (classNames instanceof Array) {
-            el.classList.add(...classNames)
-        } else {
-            el.classList.add(classNames)
-        }
+        classNames instanceof Array ?
+        el.classList.add(...classNames) :
+        el.classList.add(classNames)
     }
     return el
 }
