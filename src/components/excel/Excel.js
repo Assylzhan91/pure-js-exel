@@ -15,7 +15,6 @@ export class Excel {
             $root.append($el)
             return component
         })
-
         return $root
     }
     render() {
