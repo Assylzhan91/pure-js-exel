@@ -11,6 +11,7 @@ class DOM {
         }
         return this.$el.outerHTML.trim()
     }
+
     clear() {
         this.html('')
     }
@@ -18,9 +19,14 @@ class DOM {
     on(eventType, callback) {
         this.$el.addEventListener(eventType, callback)
     }
+
+    off(eventType, callback) {
+        this.$el.removeEventListener(eventType, callback)
+    }
+
     append(node) {
         if (node instanceof DOM) {
-            node= node.$el
+            node = node.$el
         }
         if (Element.prototype.append) {
             this.$el.append(node)
