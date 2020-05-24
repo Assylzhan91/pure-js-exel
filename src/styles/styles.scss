@@ -32,3 +32,15 @@ body {
 }
 
 
+.div-input{
+  padding: 20px;
+  background-color: red;
+  position: relative;
+  top: 400px;
+  width: 500px;
+  input{
+    height: 30px;
+    width: 50%;
+  }
+}
+

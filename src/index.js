@@ -1,3 +1,14 @@
+import {Excel} from '@/components/excel/Excel.js'
+import {Header} from '@components/header/Header'
+import {Formula} from '@components/formula/Formula'
+import {Toolbar} from '@components/toolbar/Toolbar'
+import {Table} from '@components/table/Table'
+
 import './index.html'
 import './styles/styles.scss'
-console.log('Hello, World')
+
+const excel = new Excel('#app', {
+    components: [Header, Toolbar, Formula, Table],
+})
+
+excel.render()

@@ -90,6 +90,7 @@ module.exports = {
         alias: {
             '@': path.join(__dirname, 'src'),
             '@core': path.join(__dirname, 'src/core'),
+            '@components': path.join(__dirname, 'src/components'),
         },
     },
 

@@ -12,6 +12,9 @@
     "linebreak-style": "off",
     "spaced-comment": "off",
     "indent": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "max-len": "off",
+    "operator-linebreak": "off",
+    "no-debugger": "off"
   }
 }
