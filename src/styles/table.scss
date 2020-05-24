@@ -20,8 +20,8 @@
   display: flex;
   height: $row-height;
   min-height: 20px;
-
   &-info{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,13 +48,14 @@
 
       &.selected{
         border: none;
-        box-shadow: 0 0 0 2px #3c64ff;
+        box-shadow: 0 0 0 2px $primary_color;
         z-index: 10;
       }
     }
   }
 
-    .column{
+  .column{
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -66,4 +67,28 @@
       border-left: none;
       border-top: none;
     }
+
+  .col-resize, .row-resize{
+    @include position-resize();
+  }
+
+  .col-resize{
+    top: 0;
+    width: $resize-4px;
+    &:hover{
+      opacity: 1;
+      cursor: col-resize;
+    }
+  }
+
+  .row-resize{
+    left: 0;
+    height: $resize-4px;
+    &:hover{
+      opacity: 1;
+      cursor: row-resize;
+    }
+
+  }
+
 }
