@@ -29,7 +29,7 @@ export function createTable(rowsCount = 15) {
 }
 
 function createRow(content, num = '') {
-    const colResize = num ? `<div class="row-resize"></div>` : ''
+    const colResize = num ? `<div class="row-resize" data-resize="row"></div>` : ''
     return `<div class="row">
         <div class="row-info">${num} ${colResize}</div>
         <div class="row-data">${content}</div>
@@ -39,7 +39,7 @@ function createRow(content, num = '') {
 const toColumn = (col) =>
     `<div class="column">
     ${col}
-    <div class="col-resize"></div>
+    <div class="col-resize" data-resize="col"></div>
 </div>`
 
 const toCell = ()=> `<div class="cell" contenteditable></div>`
