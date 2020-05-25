@@ -4,6 +4,7 @@ class DOM {
         ? document.querySelector(selector)
         : selector
     }
+
     html(html) {
         if (typeof html === 'string') {
             this.$el.innerHTML = html
@@ -22,6 +23,14 @@ class DOM {
 
     off(eventType, callback) {
         this.$el.removeEventListener(eventType, callback)
+    }
+
+    closest(selector) {
+        return $(this.$el.closest(selector))
+    }
+
+    getCoords() {
+        return this.$el.getBoundingClientRect()
     }
 
     append(node) {

@@ -37,7 +37,7 @@ function createRow(content, num = '') {
 }
 
 const toColumn = (col) =>
-    `<div class="column">
+    `<div class="column" data-type="resizable">
     ${col}
     <div class="col-resize" data-resize="col"></div>
 </div>`
