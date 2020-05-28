@@ -36,10 +36,10 @@ function createRow(content, num = '') {
       </div>`
 }
 
-const toColumn = (col) =>
-    `<div class="column" data-type="resizable">
+const toColumn = (col, index) =>
+    `<div class="column" data-type="resizable" data-col="${index}">
     ${col}
     <div class="col-resize" data-resize="col"></div>
 </div>`
 
-const toCell = ()=> `<div class="cell" contenteditable></div>`
+const toCell = (_, col)=> `<div class="cell" contenteditable data-col="${col}"></div>`

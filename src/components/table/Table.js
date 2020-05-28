@@ -15,15 +15,36 @@ export class Table extends ExcelComponent {
     }
 
     onMousedown(event) {
-        if (event.target.dataset.resize) {
+        if (event.target.dataset.resize === 'col') {
             const $target = $(event.target)
             const $parent = $target.closest('[data-type="resizable"]')
             const coords = $parent.getCoords()
-            const mouseMoveHandler = (e) =>{
-            const delta = e.pageX - coords.right
-            const value = coords.width + delta
-            console.log(value)
+            console.log($parent.data.col)
+
+            const mouseMoveHandler = (e) => {
+                const delta = e.pageX - coords.right
+                const value = coords.width + delta
                 $parent.$el.style.width = value + 'px'
+                document.querySelectorAll(`[data-col="${$parent.data.col}"]`)
+                    .forEach((item)=>{
+                        item.style.width = value + 'px'
+                    })
+            }
+
+            document.addEventListener('mousemove', mouseMoveHandler)
+
+            document.addEventListener('mouseup', (e)=>{
+                document.removeEventListener('mousemove', mouseMoveHandler)
+            })
+        }
+        if (event.target.dataset.resize === 'row') {
+            const $target = $(event.target)
+            const $parent = $target.closest('.row')
+            const coords = $parent.getCoords()
+
+            const mouseMoveHandler = (e) => {
+                const diff = e.pageY - coords.bottom
+                $parent.$el.style.height = coords.height + diff + 'px'
             }
             document.addEventListener('mousemove', mouseMoveHandler)
 
