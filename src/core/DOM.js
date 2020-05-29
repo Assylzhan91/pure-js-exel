@@ -37,6 +37,10 @@ class DOM {
         return this.$el.getBoundingClientRect()
     }
 
+    findAll(selector) {
+        return this.$el.querySelectorAll(selector)
+    }
+
     append(node) {
         if (node instanceof DOM) {
             node = node.$el

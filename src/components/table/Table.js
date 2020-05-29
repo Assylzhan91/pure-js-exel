@@ -20,15 +20,15 @@ export class Table extends ExcelComponent {
             const $parent = $target.closest('[data-type="resizable"]')
             const coords = $parent.getCoords()
             console.log($parent.data.col)
+            const cells = this.$root.findAll(`[data-type="${$parent.data.col}"]`)
 
             const mouseMoveHandler = (e) => {
                 const delta = e.pageX - coords.right
                 const value = coords.width + delta
                 $parent.$el.style.width = value + 'px'
-                document.querySelectorAll(`[data-col="${$parent.data.col}"]`)
-                    .forEach((item)=>{
-                        item.style.width = value + 'px'
-                    })
+                cells.forEach((item)=>{
+                    item.style.width = value + 'px'
+                })
             }
 
             document.addEventListener('mousemove', mouseMoveHandler)
