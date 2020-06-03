@@ -15,37 +15,25 @@ export class Table extends ExcelComponent {
     }
 
     onMousedown(event) {
-        if (event.target.dataset.resize === 'col') {
+        if (event.target.dataset.resize) {
             const $target = $(event.target)
             const $parent = $target.closest('[data-type="resizable"]')
             const coords = $parent.getCoords()
-            console.log($parent.data.col)
-            const cells = this.$root.findAll(`[data-type="${$parent.data.col}"]`)
+            const cells = this.$root.findAll(`[data-col="${$parent.data.col}"]`)
+            const type = $target.data.resize
 
             const mouseMoveHandler = (e) => {
-                const delta = e.pageX - coords.right
-                const value = coords.width + delta
-                $parent.$el.style.width = value + 'px'
-                cells.forEach((item)=>{
-                    item.style.width = value + 'px'
-                })
+                if (type === 'col') {
+                    const delta = e.pageX - coords.right
+                    const value = coords.width + delta
+                    $parent.$el.style.width = value + 'px'
+                    cells.forEach((item)=>item.style.width = value + 'px')
+                } else {
+                    const diff = e.pageY - coords.bottom
+                    $parent.$el.style.height = coords.height + diff + 'px'
+                }
             }
 
-            document.addEventListener('mousemove', mouseMoveHandler)
-
-            document.addEventListener('mouseup', (e)=>{
-                document.removeEventListener('mousemove', mouseMoveHandler)
-            })
-        }
-        if (event.target.dataset.resize === 'row') {
-            const $target = $(event.target)
-            const $parent = $target.closest('.row')
-            const coords = $parent.getCoords()
-
-            const mouseMoveHandler = (e) => {
-                const diff = e.pageY - coords.bottom
-                $parent.$el.style.height = coords.height + diff + 'px'
-            }
             document.addEventListener('mousemove', mouseMoveHandler)
 
             document.addEventListener('mouseup', (e)=>{

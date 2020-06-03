@@ -30,7 +30,7 @@ export function createTable(rowsCount = 15) {
 
 function createRow(content, num = '') {
     const colResize = num ? `<div class="row-resize" data-resize="row"></div>` : ''
-    return `<div class="row">
+    return `<div class="row" data-type="resizable">
         <div class="row-info">${num} ${colResize}</div>
         <div class="row-data">${content}</div>
       </div>`
