@@ -21,16 +21,22 @@ export class Table extends ExcelComponent {
             const coords = $parent.getCoords()
             const cells = this.$root.findAll(`[data-col="${$parent.data.col}"]`)
             const type = $target.data.resize
-
+            // $parent.css({
+            //     color: 'red',
+            //     backgroundColor: 'green',
+            //     borderColor: 'blue',
+            // })
             const mouseMoveHandler = (e) => {
                 if (type === 'col') {
                     const delta = e.pageX - coords.right
                     const value = coords.width + delta
-                    $parent.$el.style.width = value + 'px'
-                    cells.forEach((item)=>item.style.width = value + 'px')
+                    $parent.css({width: value + 'px'})
+                    cells.forEach((item)=>{
+                        $(item).css({width: value + 'px'})
+                    })
                 } else {
                     const diff = e.pageY - coords.bottom
-                    $parent.$el.style.height = coords.height + diff + 'px'
+                    $parent.css({height: coords.height + diff + 'px'})
                 }
             }
 
