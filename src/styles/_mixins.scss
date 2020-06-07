@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin button($color: green){
   height: 24px;
   min-width: 24px;
@@ -34,3 +36,11 @@
   right:0;
   left: 0;
 }
+
+@mixin position-resize(){
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background-color: $primary_color;
+  }

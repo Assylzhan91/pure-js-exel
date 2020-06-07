@@ -5,8 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const path = require('path')
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
-console.log('isProd', isProd)
-console.log('isDev', isDev)
+
 
 module.exports = {
     mode: 'development',

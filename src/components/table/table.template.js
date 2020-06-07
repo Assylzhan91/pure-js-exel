@@ -17,6 +17,7 @@ export function createTable(rowsCount = 15) {
         .join('')
 
     rows.push(createRow(columns))
+
     for (let i = 0; i < rowsCount; i++) {
         const cells = new Array(colsCount)
             .fill('')
@@ -28,12 +29,17 @@ export function createTable(rowsCount = 15) {
 }
 
 function createRow(content, num = '') {
-    return `<div class="row">
-        <div class="row-info">${num}</div>
+    const colResize = num ? `<div class="row-resize" data-resize="row"></div>` : ''
+    return `<div class="row" data-type="resizable">
+        <div class="row-info">${num} ${colResize}</div>
         <div class="row-data">${content}</div>
       </div>`
 }
 
-const toColumn = (col) =>`<div class="column">${col}</div>`
+const toColumn = (col, index) =>
+    `<div class="column" data-type="resizable" data-col="${index}">
+    ${col}
+    <div class="col-resize" data-resize="col"></div>
+</div>`
 
-const toCell = ()=> `<div class="cell" contenteditable></div>`
+const toCell = (_, col)=> `<div class="cell" contenteditable data-col="${col}"></div>`
